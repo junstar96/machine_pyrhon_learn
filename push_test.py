@@ -20,6 +20,6 @@ def load_matrix(UCI_url):
     return np.loadtxt(urllib.request.urlopen(UCI_url))
 
 
+UCI_url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip'
+unzip_from_UCI(UCI_url, dest='bikesharing')
 
-
-#what the hack?
