@@ -5,15 +5,31 @@ import mysql.connector
 global local_path
 global source
 global conn
-local_path = os.getcwd()
-source = 'bikesharing\\hour.csv'
-conn = None
+
+
+def define_value():
+    global local_path
+    global source
+    global conn
+    local_path = os.getcwd()
+    source = 'bikesharing\\hour.csv'
+    conn = None
 
 def query_executor(cursor, param1, param2):
-    sql = "select * from food where name = %s or name = %s ;"
-    cursor.execute(sql, (param1, param2))
+    del_sql = "drop table base test"
+    sql = "create table base_test(instant int(8), dteday DATE, season int(8), yr int(8), mnth int(8), hr int(8), holiday int(8), weekday int(8),workingday int(8),weathersit int(8), temp float(16),atemp float(16),hum float(16), windspeed float(16), casual int(8), registered int(8), cnt int(8))"
+    sql_insert = "insert into base_test "
+    with open(local_path + '\\' + source, 'r') as R:
+        iterator = csv.DictReader(R)
+        for n, row in enumerate(iterator):
+            pass
+        print('{0}'.format(n + 1))
+        print('{0}'.format(row))
+    cursor.execute(sql)
+
 
 if __name__ == "__main__":
+    define_value()
     try:
         conn = mysql.connector.connect(host='localhost', port='5934', user='root', password='jemuras1010!',
                                        database='hello_world')
