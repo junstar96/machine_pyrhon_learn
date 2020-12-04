@@ -16,8 +16,20 @@ SEP = ' ' #파일에 명시된 구분자로 쉽게 변경할 수 있도록 정�
 
 with open(local_path+'\\'+source, 'r') as R:
     iterator = csv.DictReader(R)
+    a = ""
+    b = ""
     for n, row in enumerate(iterator):
         pass
+
+    for key in row.keys():
+        if key != "instant":
+            a = a + ','
+            b = b + ','
+        a = a + row[key]
+        b = b + key
+
+    print(a)
+    print(b)
     print('{0}'.format(n+1))
     print('{0}'.format(row))
-
+    print('{0}'.format(row['instant']))
