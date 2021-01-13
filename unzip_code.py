@@ -36,3 +36,5 @@ def targzip_from_UCI(UCI_url, dest=''):
 def load_matrix(UCI_url):
     #uci의 데이터세트를 행렬 포맷으로 다운로드하고 압축을 푼다.
     return np.loadtxt(urllib.request.urlopen(UCI_url))
+
+
